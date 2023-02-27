@@ -31,8 +31,37 @@ oci os object bulk-delete --bucket-name scanning --region eu-amsterdam-1 --force
 - Copy <code>OCID</code> of the image
 - Delete VM
 
+#### Create Dynamic Groups for Policies
+
+- scanning_fn
+
+<pre>
+ALL {resource.type = 'fnfunc', resource.compartment.id = 'ocid1.compartment.oc1..aaaaaaaawccfklp2wj4c5ymigrkjfdhcbcm3u5ripl2whnznhmvgiqdatqgq'}
+</pre>
+
+- scanning_agent
+
+<pre>
+ANY {instance.compartment.id = 'ocid1.compartment.oc1..aaaaaaaawccfklp2wj4c5ymigrkjfdhcbcm3u5ripl2whnznhmvgiqdatqgq'}
+</pre>
+
+
 ### Create policies
 
+- scanning_fn
+
+<pre>
+Allow dynamic-group scanning_fn to manage instance-agent-command-family in compartment mika.rinne
+Allow dynamic-group scanning_fn to manage all-resources in compartment mika.rinne
+</pre>
+
+- scanning_agent
+
+<pre>
+Allow dynamic-group scanning_agent to use instance-agent-command-execution-family in compartment mika.rinne where request.instance.id=target.instance.id
+Allow dynamic-group scanning_agent to manage objects in compartment mika.rinne where all {target.bucket.name = 'scanning'}
+Allow dynamic-group scanning_agent to use instance-agent-command-execution-family in compartment mika.rinne
+</pre>
 
 ### Create Function
 

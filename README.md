@@ -5,7 +5,7 @@
 - Create VM with ssh access temporarily (can use Bastion service if preferred)
 - Access VM over ssh
 - Install UV scan
-- Configure run command agent
+- Configure run command agent:
 
 <pre>
 echo "ocarun ALL=(ALL) NOPASSWD:ALL" > /tmp/101-oracle-cloud-agent-run-command

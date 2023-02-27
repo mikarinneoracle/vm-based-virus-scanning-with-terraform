@@ -1,8 +1,8 @@
 resource "oci_objectstorage_bucket" "scanning" {
-  compartment_id      = var.compartment_id
-  name                = "scanning"
-  namespace           = data.oci_objectstorage_namespace.user_namespace.namespace
-  objectEventsEnabled = true
+  compartment_id        = var.compartment_id
+  name                  = "scanning"
+  namespace             = data.oci_objectstorage_namespace.user_namespace.namespace
+  object_events_enabled = true
 }
 
 resource "oci_objectstorage_bucket" "scanned" {

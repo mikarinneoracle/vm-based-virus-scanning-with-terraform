@@ -40,11 +40,6 @@ variable "event_condition" {
   default = "{\"eventType\":[\"com.oraclecloud.objectstorage.updateobject\",\"com.oraclecloud.objectstorage.createobject\"],\"data\":{\"compartmentId\":[\"ocid1.compartment.oc1..aaaaaaaawccfklp2wj4c5ymigrkjfdhcbcm3u5ripl2whnznhmvgiqdatqgq\"],\"additionalDetails\":{\"bucketName\":[\"scanning\"]}}}"
 }
 
-variable "use_always_free" {
-  ### Set to true if want to use always free VM (shapes may not be available)
-  default = false
-}
-
 variable "scanning_shape" {
   type    = string
   default = "VM.Standard.E4.Flex"

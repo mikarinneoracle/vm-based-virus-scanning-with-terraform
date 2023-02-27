@@ -1,9 +1,10 @@
-resource "oci_objectstorage_bucket" "scanning" {
-  compartment_id        = var.compartment_id
-  name                  = "scanning"
-  namespace             = data.oci_objectstorage_namespace.user_namespace.namespace
-  object_events_enabled = true
-}
+### Uncomment to create the 'scanning' bucket as part of the TF
+#resource "oci_objectstorage_bucket" "scanning" {
+#  compartment_id        = var.compartment_id
+#  name                  = "scanning"
+#  namespace             = data.oci_objectstorage_namespace.user_namespace.namespace
+#  object_events_enabled = true
+#}
 
 resource "oci_objectstorage_bucket" "scanned" {
   compartment_id = var.compartment_id

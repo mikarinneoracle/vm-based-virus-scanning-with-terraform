@@ -33,7 +33,7 @@ oci os object bulk-delete --bucket-name scanning --region eu-amsterdam-1 --force
 
 ### Create Object Storage Bucket
 
-- Create 'scanning' bucket using Cloud UI or usign CLI. Select 'Emit Events' option (important!)
+- Create 'scanning' bucket using Cloud UI or CLI. Select 'Emit Events' option (important!)
 - The other two buckets used are created as part of the Terraform from Resource Manager
 
 ### Create Dynamic Groups for Policies
@@ -75,9 +75,11 @@ Allow dynamic-group scanning_agent to use instance-agent-command-execution-famil
 ### Create Function
 
 - Create Application <code>scanning</code>
-- In could shell:
-- Create fn
-- Edit/copy func.py, func.yaml
+
+<p>
+<b>In could shell</b>:
+- Create a folder <code><a href="scanning">scanning</a></code>
+- Copy files func.py, func.yaml
 - fn -v deploy --app scanning
 
 ### Create Stack
@@ -88,7 +90,7 @@ Allow dynamic-group scanning_agent to use instance-agent-command-execution-famil
 
 When run using TF stack creates/destroys
 - VCN with private subnet
-- Object Storage buckets <code>scanning</code> with emit events set to true, <code>scanned</code>, <code>scanning-alert-report</code>
+- Object Storage buckets <code>scanned</code> and <code>scanning-alert-report</code>
 - VM to private subnet from the VM image created earlier
 - Event for scanning bucket writes (create, update) to call the Function
 

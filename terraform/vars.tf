@@ -25,7 +25,7 @@ variable "function_id" {
 variable "scanning_image_source_ocid" {
   type    = string
   ### Replace with your Scanning VM Image OCID
-  default = ocid1.image.oc1.eu-amsterdam-1.aaaaaaaaxski5mtcps44ilaajkvezlfmkzyepcrkc7m7oc3xg6xilrd76cfa"
+  default = "ocid1.image.oc1.eu-amsterdam-1.aaaaaaaaxski5mtcps44ilaajkvezlfmkzyepcrkc7m7oc3xg6xilrd76cfa"
 }
 
 variable "event_condition" {

@@ -13,7 +13,6 @@ resource "oci_objectstorage_bucket" "scanned" {
 
 resource "oci_objectstorage_bucket" "scanning_alert_report" {
   compartment_id = var.compartment_id
-  name           = scanning-alert-report"
+  name           = "scanning-alert-report"
   namespace      = data.oci_objectstorage_namespace.user_namespace.namespace
 }
-

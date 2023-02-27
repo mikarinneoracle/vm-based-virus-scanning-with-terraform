@@ -1,7 +1,7 @@
 resource "oci_events_rule" "test_rule" {
+  display_name   = "Scanning"
   condition      = var.event_condition
   compartment_id = var.compartment_id
-  display_name   = var.rule_display_name
   is_enabled     = true
   description    = "Scanning Object Storage event"
   actions {

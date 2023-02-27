@@ -5,7 +5,7 @@ data "template_file" "install" {
 resource "oci_core_instance" "scanning_vm" {
   availability_domain = lookup(data.oci_identity_availability_domains.this.availability_domains[0], "name")
   compartment_id      = var.compartment_id
-  display_name        = "scanning"
+  display_name        = "Scanning"
   shape               = var.scanning_shape
   freeform_tags = {
     Managed = var.tags

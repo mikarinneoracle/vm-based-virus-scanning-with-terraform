@@ -1,6 +1,6 @@
 schema_version: 20180708
 name: scanning
-version: 0.0.34
+version: 0.0.35
 runtime: python
 build_image: fnproject/python:3.9-dev
 run_image: fnproject/python:3.9

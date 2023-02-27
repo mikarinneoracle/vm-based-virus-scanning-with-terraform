@@ -21,8 +21,7 @@ def handler(ctx, data: io.BytesIO=None):
         stack_id = args.get("STACK_OCID")
         compartment_id = args.get("COMPARTMENT_OCID")
         command= args.get("COMMAND")
-        logging.getLogger().info('Started applying stack {}'.format(stack_id)
-
+        logging.getLogger().info('Started applying stack {}'.format(stack_id))
         job_details=rm_client.create_job(
             create_job_details=oci.resource_manager.models.CreateJobDetails(
                 stack_id=stack_id,

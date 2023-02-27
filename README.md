@@ -73,7 +73,9 @@ Allow dynamic-group scanning_agent to use instance-agent-command-execution-famil
 
 ### Create Stack
 
-- Update VM image ocid and region
+- Update Terraform <code><a href="terraform/vars.tf">vars.tf</a></code> for <code>VM image ocid</code>, <code>compartment</code> and <code>region/AD</code>. <b>This can be also done in the next step in Resource Manager</b>.
+
+- Create Resource Manager Stack using Cloud UI
 
 When run using TF stack creates/destroys
 - VCN with private subnet

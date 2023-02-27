@@ -2,7 +2,7 @@
 
 ### Create OL8 VM image
 
-- Create VM with ssh access temporarily (can use Bastion service if preferred)
+- Using Cloud UI create a VM with ssh access temporarily (can use Bastion service if preferred)
 - Access VM over ssh
 - Install UV scan
 - Add <code>/home/opc/<a href="scan.sh">scan.sh</a></code> (modify region and bucket names if necessary):
@@ -31,7 +31,12 @@ oci os object bulk-delete --bucket-name scanning --region eu-amsterdam-1 --force
 - Copy <code>OCID</code> of the image
 - Delete VM
 
-#### Create Dynamic Groups for Policies
+### Create Object Storage Bucket
+
+- Create 'scanning' bucket using Cloud UI or usign CLI. Select 'Emit Events' option (important!)
+- The other two buckets used are created as part of the Terraform from Resource Manager
+
+### Create Dynamic Groups for Policies
 
 - scanning_fn
 

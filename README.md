@@ -35,6 +35,24 @@ oci os object bulk-delete --bucket-name scanning --region eu-amsterdam-1 --force
 </pre>
 
 - Create VM image from the VM
-- Copy OCID of the image
+- Copy <code>OCID</code> of the image
 - Delete VM
 
+### Create policies
+
+### Create Stack
+
+- Update VM image ocid and region
+
+### Create Function
+
+- Create Application <code>scanning</code>
+- Configure <code>stack ocid</code>, <code>vm compartment ocid</code>, <code>command</code>
+- In could shell:
+- Create fn
+- Edit/copy func.py, func.yaml
+- fn -v deploy --app scanning
+
+### Questions
+
+- How to update the uvscan data file ? Create VM image again ? Automate ?

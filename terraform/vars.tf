@@ -1,13 +1,19 @@
 variable "region" {
   type    = string
-  ### Replace with your Region
+  ### Replace with your Region if not AMS
   default = "eu-amsterdam-1"
 }
 
 variable "availability_domain" {
   type    = string
-  ### Replace with your Region AD
+  ### Replace with your Region AD if not AMS
   default = "eu-amsterdam-1-AD-1" 
+}
+
+variable "services_network" {
+  type    = string
+  ### Replace with your 'ams' Region key if not AMS
+  default = "all-ams-services-in-oracle-services-network" 
 }
 
 variable "compartment_id" {

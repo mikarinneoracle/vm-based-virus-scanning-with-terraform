@@ -36,7 +36,7 @@ oci os object bulk-delete --bucket-name scanning --region eu-amsterdam-1 --force
 <b>In could shell</b>:
 - Copy repo and cd to <code><a href="terraform">/terraform</a></code> locally (Can use git clone)
 - Update <code><a href="terraform/vars.tf">vars.tf</a></code> <code>compartment</code> and <code>region</code> used 
-- Run <code>terraform init</code> and <code>terarform apply</code> 
+- Run <code>terraform init</code> and <code>terraform apply</code> 
 
 Running apply will create:
 - Three Object Storage buckets <code>scanning</code>, <code>scanned</code>, <code>scanning_alert_report</code> 

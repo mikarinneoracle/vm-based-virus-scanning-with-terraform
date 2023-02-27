@@ -38,6 +38,11 @@ oci os object bulk-delete --bucket-name scanning --region eu-amsterdam-1 --force
 - Update <code><a href="terraform/vars.tf">vars.tf</a></code> <code>compartment</code> and <code>region</code> used 
 - Run <code>terraform init</code> and <code>terarform apply</code> 
 
+Running apply will create:
+- Three Object Storage buckets <code>scanning</code>, <code>scanned</code>, <code>scanning_alert_report</code> 
+- Event to kick-off the Function for environment creation using Resource Manager and then scanning using VM instance-agent and the scanning script
+- To delete these resources run <code>terraform destroy</code>
+
 ### Create Dynamic Groups for Policies
 
 - scanning_fn

@@ -77,19 +77,21 @@ Allow dynamic-group scanning_agent to use instance-agent-command-execution-famil
 
 ### Create OCIR for Function
 
-- Create Container registry <code>scanning</code> for the Funtion created in the next step
+- Create Container registry <code>scanning</code> for the Function created in the next step
 
 ### Create Function
 
-- Create Application <code>scanning</code>
+- In Cloud UI create Application <code>scanning</code>
 
 <p>
 <b>In could shell</b>:
 - Copy repo and cd to <code><a href="scanning">/scanning</a></code> locally (Can use git clone; was done earlier)
-- run:
+- Follow the isntructions in the Application "Getting Started"
+- Finally run (as part of the getting started):
 <pre>
 fn -v deploy --app scanning
 </pre>
+This will create and push the OCIR image and deploy the Function
 
 ### Create Stack
 
@@ -106,7 +108,7 @@ When Function is run using Resource Manager stack it creates (and optionally des
 
 ### Configure Function
 
-- Configure <code>STACK_OCID</code>, <code>COMPARTMENT_OCID</code>, <code>COMMAND</code> parameters for the Function
+- Configure <code>STACK_OCID</code>, <code>COMPARTMENT_OCID</code>, <code>COMMAND</code> parameters for the Function tu run
 
 Command code (Can be <b>fixed</b> in the shell script instead for safety):
 <pre>

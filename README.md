@@ -5,13 +5,6 @@
 - Create VM with ssh access temporarily (can use Bastion service if preferred)
 - Access VM over ssh
 - Install UV scan
-- Configure run command agent:
-
-<pre>
-echo "ocarun ALL=(ALL) NOPASSWD:ALL" > /tmp/101-oracle-cloud-agent-run-command
-sudo cp /tmp/101-oracle-cloud-agent-run-command /etc/sudoers.d/
-</pre>
-
 - Add <code>/home/opc/scan.sh</code> (modify region and bucket names if necessary):
 
 <pre>
@@ -40,18 +33,28 @@ oci os object bulk-delete --bucket-name scanning --region eu-amsterdam-1 --force
 
 ### Create policies
 
-### Create Stack
-
-- Update VM image ocid and region
 
 ### Create Function
 
 - Create Application <code>scanning</code>
-- Configure <code>stack ocid</code>, <code>vm compartment ocid</code>, <code>command</code>
 - In could shell:
 - Create fn
 - Edit/copy func.py, func.yaml
 - fn -v deploy --app scanning
+
+### Create Stack
+
+- Update VM image ocid and region
+
+When run using TF stack creates/destroys
+- VCN with private subnet
+- Object Storage buckets <code>scanning</code> with emit events set to true, <code>scanned</code>, <code>scanning-alert-report</code>
+- VM to private subnet from the VM image created earlier
+- Event for scanning bucket writes (create, update) to call the Function
+
+### Configure Function
+
+- Configure <code>stack ocid</code>, <code>vm compartment ocid</code>, <code>command</code>
 
 ### Questions
 

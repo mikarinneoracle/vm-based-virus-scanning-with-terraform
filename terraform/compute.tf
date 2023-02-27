@@ -19,9 +19,8 @@ resource "oci_core_instance" "scanning_vm" {
 
   create_vnic_details {
     assign_private_dns_record = true
-    subnet_id                 = oci_core_subnet.Public_Subnet_scanning.id
-    display_name              = "scanning-VNIC"
-    assign_public_ip          = true
+    subnet_id                 = oci_core_subnet.Private_Subnet_scanning.id
+    display_name              = "Scanning VNIC"
     freeform_tags = {
       Managed = var.tags
     }

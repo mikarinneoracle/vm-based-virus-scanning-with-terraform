@@ -2,6 +2,8 @@ import io
 import json
 import logging
 import oci
+import os
+import collections
 
 from fdk import response
 
@@ -13,13 +15,15 @@ def handler(ctx, data: io.BytesIO=None):
         namespace = body["data"]["additionalDetails"]["namespace"]
         bucket = body["data"]["additionalDetails"]["bucketName"]
         object_name = body["data"]["resourceName"]
-        print("INFO - Namespace {}, bucket {}, object {} received".format(namespace, bucket, object_name), flush=True)
+        print("Received file:  {}/{}".format(bucket, object_name), flush=True)
 
         # Store as config param
-        compartment_id = "ocid1.compartment.oc1..aaaaaaaawccfklp2wj4c5ymigrkjfdhcbcm3u5ripl2whnznhmvgiqdatqgq"
-        compute_instance_id = "ocid1.instance.oc1.eu-amsterdam-1.anqw2ljruevftmqcrcrinvmkb33ku4y54bbrwcrxbbn3mg7evuo6o6wdwmda"
+        # stack_id = args.get("STACK_OCID")
 
-        command = "sudo -u opc /home/opc/scan.sh"
+        args = collections.ChainMap(os.environ)
+        compartment_id = args.get("COMPARTMENT_OCID")
+        compute_instance_id = args.get("COMPUTE_INSTANCE_OCID")
+        command= args.get("COMMAND")
 
         target = oci.compute_instance_agent.models.InstanceAgentCommandTarget(instance_id = compute_instance_id)
         
@@ -40,10 +44,10 @@ def handler(ctx, data: io.BytesIO=None):
                                                                                            target = target)
 
         res = agent.create_instance_agent_command(create_instance_agent_command_details = agentDetails)
-        print("INFO - Agent create res: {}".format(res.data), flush=True)
+        # print("INFO - Agent create res: {}".format(res.data), flush=True)
         
     except Exception as e:
-        print('ERROR: bad Event!', flush=True)
+        print('ERROR', flush=True)
         raise
 
     return response.Response(

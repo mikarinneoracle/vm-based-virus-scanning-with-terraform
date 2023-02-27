@@ -1,3 +1,6 @@
+data "oci_core_services" "weblogic_services" {
+}
+
 resource "oci_core_vcn" "scanning_vcn" {
   compartment_id = var.compartment_id
   cidr_block     = "10.0.0.0/16"

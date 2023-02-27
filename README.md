@@ -31,10 +31,12 @@ oci os object bulk-delete --bucket-name scanning --region eu-amsterdam-1 --force
 - Copy <code>OCID</code> of the image
 - Delete VM
 
-### Create Object Storage Bucket
+### Create Object Storage Bucket and Event using Terraform
 
-- Create 'scanning' bucket using Cloud UI or CLI. Select 'Emit Events' option (important!)
-- The other two buckets used are created as part of the Terraform from Resource Manager
+<b>In could shell</b>:
+- Copy repo and cd to <code><a href="terraform">/terraform</a></code> locally (Can use git clone)
+- Update <code><a href="terraform/vars.tf">vars.tf</a></code> <code>compartment</code> and <code>region</code> used 
+- Run <code>terraform init</code> and <code>terarform apply</code> 
 
 ### Create Dynamic Groups for Policies
 
@@ -78,26 +80,34 @@ Allow dynamic-group scanning_agent to use instance-agent-command-execution-famil
 
 <p>
 <b>In could shell</b>:
-- Create a folder <code><a href="scanning">scanning</a></code>
-- Copy files func.py, func.yaml
-- fn -v deploy --app scanning
+- Copy repo and cd to <code><a href="scanning">/scanning</a></code> locally (Can use git clone; was done earlier)
+- run:
+<pre>
+fn -v deploy --app scanning
+</pre>
 
 ### Create Stack
 
-- Update Terraform <code><a href="terraform/vars.tf">vars.tf</a></code> for <code>VM image ocid</code>, <code>compartment</code> and <code>region/AD</code>. <b>This can be also done in the next step in Resource Manager</b>.
+<b>In localhost</b>:
+- Copy repo and cd to <code><a href="resource_manager">/resource_manager</a></code> locally (Can use git clone)
+- Update <code><a href="resource_manager/versions.tf">versions.tf</a></code> for <code>region</code> used
+- Update <code><a href="resource_manager/vars.tf">vars.tf</a></code> for <code>VM image ocid</code>, <code>compartment</code> and <code>region/AD</code> used. <b>This can be also done in the next step in Resource Manager</b>.
+- Create Resource Manager Stack using Cloud UI by drag-and-drop the folder <code>/resource_manager</code> from localhost
 
-- Create Resource Manager Stack using Cloud UI
-
-When run using TF stack creates/destroys
-- VCN with private subnet
-- Object Storage buckets <code>scanned</code> and <code>scanning-alert-report</code>
-- VM to private subnet from the VM image created earlier
-- Event for scanning bucket writes (create, update) to call the Function
+When Function is run using Resource Manager stack it creates (and optionally destroys)
+- VCN with private subnet (no access from outside; add a Bastion Service if access is needed)
+- VM instance to the VCN private subnet from the VM image created earlier
+- Uses <code>instance-agent</code> to execute the uvscall shell script on the VM instance
 
 ### Configure Function
 
-- Configure <code>stack ocid</code>, <code>vm compartment ocid</code>, <code>command</code>
+- Configure <code>STACK_OCID</code>, <code>COMPARTMENT_OCID</code>, <code>COMMAND</code> parameters for the Function
+
+Command code (Can be <b>fixed</b> in the shell script instead for safety):
+<pre>
+sudo -u opc /home/opc/scan.sh
+</pre>
 
 ### Questions
 
-- How to update the uvscan data file ? Create VM image again ? Automate ?
+- How to update the uvscan data file ? After update create VM image again ? Automate somehow ?

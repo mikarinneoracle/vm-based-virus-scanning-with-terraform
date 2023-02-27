@@ -2,10 +2,9 @@
 
 ### Create OL8 VM image
 
-- Create VM with ssh access temporarily
-
+- Create VM with ssh access temporarily (can use Bastion service if preferred)
+- Access VM over ssh
 - Install UV scan
-
 - Configure run command agent
 
 <pre>
@@ -26,4 +25,8 @@ oci os object bulk-download --bucket-name scanning --region eu-amsterdam-1 --dow
     --report=/home/opc/report.txt --rptall --rptcor --rpterr --rptobjects /home/opc/scandir
 oci os object bulk-delete --bucket-name scanning --region eu-amsterdam-1 --force
 </pre>
+
+- Create VM image from the VM
+- Copy OCID of the image
+- Delete VM
 

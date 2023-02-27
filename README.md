@@ -63,6 +63,10 @@ Allow dynamic-group scanning_agent to manage objects in compartment mika.rinne w
 Allow dynamic-group scanning_agent to use instance-agent-command-execution-family in compartment mika.rinne
 </pre>
 
+### Create OCIR for Function
+
+- Create Container registry <code>scanning</code> for the Funtion created in the next step
+
 ### Create Function
 
 - Create Application <code>scanning</code>

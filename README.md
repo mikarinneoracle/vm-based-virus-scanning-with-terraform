@@ -5,7 +5,7 @@
 - Using Cloud UI create a VM with ssh access temporarily (can use Bastion service if preferred)
 - Access VM over ssh
 - Install UV scan
-- Add <code>/home/opc/<a href="scan.sh">scan.sh</a></code> (modify region and bucket names if necessary):
+- Add <code>/home/opc/<a href="scan.sh">scan.sh</a></code> (modify <code>region</code> if necessary):
 
 <pre>
 rm -f /home/opc/report.txt

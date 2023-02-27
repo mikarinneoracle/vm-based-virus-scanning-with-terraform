@@ -40,8 +40,8 @@ def handler(ctx, data: io.BytesIO=None):
         el = ocid_line.split(' ')
         if len(el) > 1:
             ocid = el[len(el) - 1]
-            ocid = ocid.replace('"', '')
-            logging.getLogger().info('==> OCID {ocid}'.format(ocid=ocid))
+            compute_instance_id = ocid.replace('"', '')
+            logging.getLogger().info('==> OCID {}'.format(compute_instance_id))
             target = oci.compute_instance_agent.models.InstanceAgentCommandTarget(instance_id = compute_instance_id)        
             content = oci.compute_instance_agent.models.InstanceAgentCommandContent(
                 source = oci.compute_instance_agent.models.InstanceAgentCommandSourceViaTextDetails(

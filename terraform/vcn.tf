@@ -1,4 +1,4 @@
-data "oci_core_services" "weblogic_services" {
+data "oci_core_services" "scanning_services" {
 }
 
 resource "oci_core_vcn" "scanning_vcn" {

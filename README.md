@@ -104,7 +104,7 @@ This will create and push the OCIR image and deploy the Function
 When Function is run using Resource Manager stack it creates (and optionally destroys)
 - VCN with private subnet (no access from outside; add a Bastion Service if access is needed)
 - VM instance to the VCN private subnet from the VM image created earlier
-- Uses <code>instance-agent</code> to execute the uvscall shell script on the VM instance
+- Uses <code>instance-agent</code> to execute the uvscan shell script on the VM instance
 
 ### Configure Function
 

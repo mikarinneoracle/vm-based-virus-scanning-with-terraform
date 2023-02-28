@@ -17,7 +17,7 @@ resource "oci_events_rule" "scan_rule" {
 }
 
 resource "oci_events_rule" "clean_rule" {
-  display_name   = "Scanning"
+  display_name   = "Scanned-clean"
   condition      = var.clean_event_condition
   compartment_id = var.compartment_id
   is_enabled     = true
@@ -35,7 +35,7 @@ resource "oci_events_rule" "clean_rule" {
 }
 
 resource "oci_events_rule" "infected_rule" {
-  display_name   = "Scanning"
+  display_name   = "Scanned-infected"
   condition      = var.infected_event_condition
   compartment_id = var.compartment_id
   is_enabled     = true

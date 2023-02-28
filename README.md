@@ -28,7 +28,7 @@ oci os object bulk-delete --bucket-name scanning --region eu-amsterdam-1 --force
 </pre>
 
 - Create VM image from the VM
-- Copy <code>OCID</code> of the image
+- Copy <code>OCID</code> of the VM image for the step <a href="#create-resource-manager-stack"></a>
 - Delete VM
 
 ### Create Dynamic Groups for Policies
@@ -111,11 +111,13 @@ Running apply will create:
 - Update <code><a href="resource_manager/versions.tf">versions.tf</a></code> for <code>region</code> used
 - Update <code><a href="resource_manager/vars.tf">vars.tf</a></code> for <code>VM image ocid</code>, <code>compartment</code> and <code>region/AD</code> used. <b>This can be also done in the next step in Resource Manager</b>.
 - Create Resource Manager Stack using Cloud UI by drag-and-drop the folder <code>/resource_manager</code> from localhost
+- Copy <code>OCID</code> of the Stack for the next step <a href="#configure-function"></a>
 
 When Function is run using Resource Manager stack it creates (and then destroys once the scan is done)
 - VCN with private subnet (no access from outside; add a Bastion Service if access is needed)
 - VM instance to the VCN private subnet from the VM image created earlier
 - Uses <code>instance-agent</code> to execute the uvscan shell script on the VM instance
+
 
 ### Configure Function
 

@@ -22,6 +22,18 @@ variable "event_condition" {
   default = "{\"eventType\":[\"com.oraclecloud.objectstorage.updateobject\",\"com.oraclecloud.objectstorage.createobject\"],\"data\":{\"compartmentId\":[\"ocid1.compartment.oc1..aaaaaaaawccfklp2wj4c5ymigrkjfdhcbcm3u5ripl2whnznhmvgiqdatqgq\"],\"additionalDetails\":{\"bucketName\":[\"scanning\"]}}}"
 }
 
+variable "clean_condition" {
+  type    = string
+  ### Replace with your Compartment OCID
+  default = "{\"eventType\":[\"com.oraclecloud.objectstorage.updateobject\",\"com.oraclecloud.objectstorage.createobject\"],\"data\":{\"compartmentId\":[\"ocid1.compartment.oc1..aaaaaaaawccfklp2wj4c5ymigrkjfdhcbcm3u5ripl2whnznhmvgiqdatqgq\"],\"additionalDetails\":{\"bucketName\":[\"scanned\"]}}}"
+}
+
+variable "infected_condition" {
+  type    = string
+  ### Replace with your Compartment OCID
+  default = "{\"eventType\":[\"com.oraclecloud.objectstorage.updateobject\",\"com.oraclecloud.objectstorage.createobject\"],\"data\":{\"compartmentId\":[\"ocid1.compartment.oc1..aaaaaaaawccfklp2wj4c5ymigrkjfdhcbcm3u5ripl2whnznhmvgiqdatqgq\"],\"additionalDetails\":{\"bucketName\":[\"scanning-alert-report\"]}}}"
+}
+
 variable "tags" {
   type    = string
   default = "created by Terraform"

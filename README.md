@@ -75,6 +75,7 @@ Allow dynamic-group scanning_agent to use instance-agent-command-execution-famil
 ### Create Function
 
 - In Cloud UI create Application <code>scanning</code>
+- Enable logging
 
 <b>In Cloud Shell</b>:
     

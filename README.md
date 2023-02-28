@@ -3,9 +3,14 @@
 ### Create OL8 VM image
 
 - Using Cloud UI create a VM with ssh access temporarily (can use Bastion service if preferred)
-- Access VM over ssh
-- Install UV scan
-- Add <code>/home/opc/<a href="scan.sh">scan.sh</a></code> (modify <code>region</code> if necessary):
+- Install UV scan. I downloaded Command Line Scanner for Linux-64bit free trial from https://www.trellix.com/en-us/downloads/trials.html?selectedTab=endpointprotection and then using <code>scp</code> copied the file to the
+VM instance using Internet connection over ssh, e.g.:
+
+<pre>
+ scp cls-l64-703-e.tar.gz opc@141.144.201.144:/tmp
+</pre>
+
+- Access VM over ssh and add <code>/home/opc/<a href="scan.sh">scan.sh</a></code> (modify <code>region</code> if necessary):
 
 <pre>
 rm -f /home/opc/report.txt
@@ -27,8 +32,14 @@ fi
 oci os object bulk-delete --bucket-name scanning --region eu-amsterdam-1 --force
 </pre>
 
-- Create VM image from the VM
-- Copy <code>OCID</code> of the VM image for the step <a href="#create-resource-manager-stack">Create Resource Manager Stack</a>
+- Also dowloaded the uvscan datafile and then moved it to it's place (in uvscan):
+
+<pre>
+wget https://update.nai.com/products/commonupdater/current/vscandat1000/dat/0000/avvdat-10629.zip 
+</pre>
+
+- Using Cloud UI create a VM image from the VM
+- Copy <code>OCID</code> of the created VM image for the step <a href="#create-resource-manager-stack">Create Resource Manager Stack</a>
 - Delete VM
 
 ### Create Dynamic Groups for Policies

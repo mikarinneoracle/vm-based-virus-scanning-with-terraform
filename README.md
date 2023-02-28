@@ -111,7 +111,7 @@ Running apply will create:
 - Update <code><a href="resource_manager/vars.tf">vars.tf</a></code> for <code>VM image ocid</code>, <code>compartment</code> and <code>region/AD</code> used. <b>This can be also done in the next step in Resource Manager</b>.
 - Create Resource Manager Stack using Cloud UI by drag-and-drop the folder <code>/resource_manager</code> from localhost
 
-When Function is run using Resource Manager stack it creates (and optionally destroys)
+When Function is run using Resource Manager stack it creates (and then destroys once the scan is done)
 - VCN with private subnet (no access from outside; add a Bastion Service if access is needed)
 - VM instance to the VCN private subnet from the VM image created earlier
 - Uses <code>instance-agent</code> to execute the uvscan shell script on the VM instance

@@ -70,7 +70,7 @@ Allow dynamic-group scanning_agent to use instance-agent-command-execution-famil
 
 ### Create OCIR for Function
 
-- Create Container registry <code>scanning</code> for the Function created in the next step
+- In Cloud UI create Container registry <code>scanning</code> for the Function created in the next step
 
 ### Create Function
 
@@ -79,7 +79,7 @@ Allow dynamic-group scanning_agent to use instance-agent-command-execution-famil
 <b>In Cloud Shell</b>:
     
 - Clone repo to localhost or Cloud Shell and cd to <code><a href="scanning">/scanning</a></code>
-- Follow the instructions in the Application "Getting Started" and create Application <code>scanning</code>
+- Follow the instructions in the Application "Getting Started" to Function <code>scanning</code>
 - Copy/paste <code>func.py</code>, <code>fuinc.yaml</code>, <code>requirements.txt</code>
 - Finally run (as part of the getting started):
 <pre>

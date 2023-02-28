@@ -80,7 +80,7 @@ Allow dynamic-group scanning_agent to use instance-agent-command-execution-famil
     
 - Clone repo to localhost or Cloud Shell and cd to <code><a href="scanning">/scanning</a></code>
 - Follow the instructions in the Application "Getting Started" to Function <code>scanning</code>
-- Copy/paste <code>func.py</code>, <code>fuinc.yaml</code>, <code>requirements.txt</code>
+- Copy/paste <code>func.py</code>, <code>func.yaml</code>, <code>requirements.txt</code>
 - Finally run (as part of the getting started):
 <pre>
 fn -v deploy --app scanning

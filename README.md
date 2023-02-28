@@ -101,7 +101,7 @@ This will create and push the OCIR image and deploy the Function <code>scanning<
 
 ### Create Object Storage Bucket and Events using Terraform
 
-<b>In could shell or locally</b>:
+<b>In could shell or localhost</b>:
 
 - Clone repo and cd to <code><a href="terraform">/terraform</a></code>
 - Update <code><a href="terraform/vars.tf">vars.tf</a></code> <code>compartment</code> and <code>region</code> used 

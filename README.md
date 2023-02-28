@@ -127,7 +127,4 @@ sudo -u opc /home/opc/scan.sh
 
 ### Questions / Considerations
 
-- How to update the uvscan data file ? After update create VM image again ? Automate somehow ?
-- To destroy the scanning VM env need to use another Event for the target buckets that will then
-trigger another small function to use the Resource Manager Stack with destroy action after the
-scanning is completed
+- How to update the uvscan data file from Internet ? After update create VM image again ? Automate somehow ?

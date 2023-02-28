@@ -65,8 +65,12 @@ def handler(ctx, data: io.BytesIO=None):
                 logging.getLogger().info('Agent create res: {}'.format(res.data))
 
         if bucket == "scanned" or bucket == "scanning-alert-report":
-            
+
+            if bucket == "scanning-alert-report":
+                logging.getLogger().warn('Virus sacn alert! Found infected files at {}'.format(object_name))
+
             logging.getLogger().info('Started destroying stack {}'.format(stack_id))
+
             job_details=rm_client.create_job(
                 create_job_details=oci.resource_manager.models.CreateJobDetails(
                     stack_id=stack_id,

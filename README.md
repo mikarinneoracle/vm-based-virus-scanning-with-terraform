@@ -31,18 +31,6 @@ oci os object bulk-delete --bucket-name scanning --region eu-amsterdam-1 --force
 - Copy <code>OCID</code> of the image
 - Delete VM
 
-### Create Object Storage Bucket and Event using Terraform
-
-<b>In could shell</b>:
-- Copy repo and cd to <code><a href="terraform">/terraform</a></code> locally (Can use git clone)
-- Update <code><a href="terraform/vars.tf">vars.tf</a></code> <code>compartment</code> and <code>region</code> used 
-- Run <code>terraform init</code> and <code>terraform apply</code> 
-
-Running apply will create:
-- Three Object Storage buckets <code>scanning</code>, <code>scanned</code>, <code>scanning_alert_report</code> 
-- Event to kick-off the Function for environment creation using Resource Manager and then scanning using VM instance-agent and the scanning script
-- To delete these resources run <code>terraform destroy</code>
-
 ### Create Dynamic Groups for Policies
 
 - scanning_fn
@@ -62,17 +50,22 @@ ANY {instance.compartment.id = 'ocid1.compartment.oc1..aaaaaaaawccfklp2wj4c5ymig
 
 - scanning_fn
 
+This should be enough:
 <pre>
-Allow dynamic-group scanning_fn to manage instance-agent-command-family in compartment mika.rinne
-Allow dynamic-group scanning_fn to manage all-resources in compartment mika.rinne
+Allow dynamic-group scanning_fn to manage instance-agent-command-family in compartment &lt;YOUR COMPARTMENT&gt;
+</pre>
+
+However, I used policy for broader access to make it work:
+<pre>
+Allow dynamic-group scanning_fn to manage all-resources in compartment &lt;YOUR COMPARTMENT&gt;
 </pre>
 
 - scanning_agent
 
 <pre>
-Allow dynamic-group scanning_agent to use instance-agent-command-execution-family in compartment mika.rinne where request.instance.id=target.instance.id
-Allow dynamic-group scanning_agent to manage objects in compartment mika.rinne where all {target.bucket.name = 'scanning'}
-Allow dynamic-group scanning_agent to use instance-agent-command-execution-family in compartment mika.rinne
+Allow dynamic-group scanning_agent to use instance-agent-command-execution-family in compartment &lt;YOUR COMPARTMENT&gt; where request.instance.id=target.instance.id
+Allow dynamic-group scanning_agent to manage objects in compartment &lt;YOUR COMPARTMENT&gt; where all {target.bucket.name = 'scanning'}
+Allow dynamic-group scanning_agent to use instance-agent-command-execution-family in compartment &lt;YOUR COMPARTMENT&gt;
 </pre>
 
 ### Create OCIR for Function
@@ -84,19 +77,33 @@ Allow dynamic-group scanning_agent to use instance-agent-command-execution-famil
 - In Cloud UI create Application <code>scanning</code>
 
 <p>
-<b>In could shell</b>:
-- Copy repo and cd to <code><a href="scanning">/scanning</a></code> locally (Can use git clone; was done earlier)
-- Follow the isntructions in the Application "Getting Started"
+<b>In Cloud Shell</b>:
+- Clone repo to localhost or Cloud Shell and cd to <code><a href="scanning">/scanning</a></code>
+- Follow the instructions in the Application "Getting Started" and create Application <code>scanning</code>
+- Copy/paste <code>func.py</code>, <code>fuinc.yaml</code>, <code>requirements.txt</code>
 - Finally run (as part of the getting started):
 <pre>
 fn -v deploy --app scanning
 </pre>
-This will create and push the OCIR image and deploy the Function
+This will create and push the OCIR image and deploy the Function <code>scanning</code> to the Application
 
-### Create Stack
+### Create Object Storage Bucket and Events using Terraform
+
+<b>In could shell or locally</b>:
+- Clone repo and cd to <code><a href="terraform">/terraform</a></code>
+- Update <code><a href="terraform/vars.tf">vars.tf</a></code> <code>compartment</code> and <code>region</code> used 
+- Run <code>terraform init</code> and <code>terraform apply</code> 
+
+Running apply will create:
+- Three Object Storage buckets <code>scanning</code>, <code>scanned</code>, <code>scanning_alert_report</code> 
+- Event to kick-off the Function for environment creation using Resource Manager and then scanning using VM instance-agent and the scanning script
+- Event to kick-off the Function for environment deletion using Resource Manager after the scanning is done
+- To delete these resources run <code>terraform destroy</code> from Cloud Shell or locally
+
+### Create Resource Manager Stack
 
 <b>In localhost</b>:
-- Copy repo and cd to <code><a href="resource_manager">/resource_manager</a></code> locally (Can use git clone)
+- Clone repo and cd to <code><a href="resource_manager">/resource_manager</a></code> locally
 - Update <code><a href="resource_manager/versions.tf">versions.tf</a></code> for <code>region</code> used
 - Update <code><a href="resource_manager/vars.tf">vars.tf</a></code> for <code>VM image ocid</code>, <code>compartment</code> and <code>region/AD</code> used. <b>This can be also done in the next step in Resource Manager</b>.
 - Create Resource Manager Stack using Cloud UI by drag-and-drop the folder <code>/resource_manager</code> from localhost
@@ -110,7 +117,7 @@ When Function is run using Resource Manager stack it creates (and optionally des
 
 - Configure <code>STACK_OCID</code>, <code>COMPARTMENT_OCID</code>, <code>COMMAND</code> parameters for the Function tu run
 
-Command code (Can be <b>fixed</b> in the shell script instead for safety):
+VM Instance-Agent Run <code>COMMAND</code> (Can be <b>fixed</b> in the shell script instead for safety):
 <pre>
 sudo -u opc /home/opc/scan.sh
 </pre>

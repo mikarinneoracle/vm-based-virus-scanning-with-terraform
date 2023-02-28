@@ -109,7 +109,7 @@ This will create and push the OCIR image and deploy the Function <code>scanning<
 
 Running apply will create:
 
-- Three Object Storage buckets <code>scanning</code>, <code>scanned</code>, <code>scanning_alert_report</code> 
+- Three Object Storage buckets <code>scanning</code>, <code>scanned</code>, <code>scanning-alert-report</code> 
 - Event to kick-off the Function for environment creation using Resource Manager and then scanning using VM instance-agent and the scanning script
 - Event to kick-off the Function for environment deletion using Resource Manager after the scanning is done
 - To delete these resources run <code>terraform destroy</code> from Cloud Shell or locally

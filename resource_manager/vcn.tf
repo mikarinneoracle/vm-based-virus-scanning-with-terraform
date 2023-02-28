@@ -65,16 +65,6 @@ resource "oci_core_security_list" "scanning_security_list_private" {
     source_type = "CIDR_BLOCK"
   }
 
-  ingress_security_rules {
-    protocol = "6"
-    source   = "0.0.0.0/0"
-    tcp_options {
-      max = "1522"
-      min = "1521"
-    }
-    source_type = "CIDR_BLOCK"
-  }
-
   freeform_tags = {
     Managed = var.tags
   }

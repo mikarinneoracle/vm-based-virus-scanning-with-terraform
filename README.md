@@ -76,8 +76,8 @@ Allow dynamic-group scanning_agent to use instance-agent-command-execution-famil
 
 - In Cloud UI create Application <code>scanning</code>
 
-<p>
 <b>In Cloud Shell</b>:
+    
 - Clone repo to localhost or Cloud Shell and cd to <code><a href="scanning">/scanning</a></code>
 - Follow the instructions in the Application "Getting Started" and create Application <code>scanning</code>
 - Copy/paste <code>func.py</code>, <code>fuinc.yaml</code>, <code>requirements.txt</code>
@@ -90,11 +90,13 @@ This will create and push the OCIR image and deploy the Function <code>scanning<
 ### Create Object Storage Bucket and Events using Terraform
 
 <b>In could shell or locally</b>:
+
 - Clone repo and cd to <code><a href="terraform">/terraform</a></code>
 - Update <code><a href="terraform/vars.tf">vars.tf</a></code> <code>compartment</code> and <code>region</code> used 
 - Run <code>terraform init</code> and <code>terraform apply</code> 
 
 Running apply will create:
+
 - Three Object Storage buckets <code>scanning</code>, <code>scanned</code>, <code>scanning_alert_report</code> 
 - Event to kick-off the Function for environment creation using Resource Manager and then scanning using VM instance-agent and the scanning script
 - Event to kick-off the Function for environment deletion using Resource Manager after the scanning is done
@@ -103,6 +105,7 @@ Running apply will create:
 ### Create Resource Manager Stack
 
 <b>In localhost</b>:
+
 - Clone repo and cd to <code><a href="resource_manager">/resource_manager</a></code> locally
 - Update <code><a href="resource_manager/versions.tf">versions.tf</a></code> for <code>region</code> used
 - Update <code><a href="resource_manager/vars.tf">vars.tf</a></code> for <code>VM image ocid</code>, <code>compartment</code> and <code>region/AD</code> used. <b>This can be also done in the next step in Resource Manager</b>.

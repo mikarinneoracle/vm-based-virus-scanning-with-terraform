@@ -66,8 +66,11 @@ def handler(ctx, data: io.BytesIO=None):
 
         if bucket == "scanned" or bucket == "scanning-alert-report":
 
+            if bucket == "scanned":
+                logging.getLogger().info('Virus scan successful, clean files: {}'.format(object_name))
+                
             if bucket == "scanning-alert-report":
-                logging.getLogger().warn('Virus sacn alert! Found infected files at {}'.format(object_name))
+                logging.getLogger().warn('Virus scan alert! Found infected files at {}'.format(object_name))
 
             logging.getLogger().info('Started destroying stack {}'.format(stack_id))
 

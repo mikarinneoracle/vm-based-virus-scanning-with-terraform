@@ -139,6 +139,21 @@ VM Instance-Agent Run <code>COMMAND</code> (Can be <b>fixed</b> in the shell scr
 sudo -u opc /home/opc/scan.sh
 </pre>
 
+### Upload a .zip file
+
+- Use oci cli
+
+<pre>
+oci os object put --bucket-name scanning --region eu-amsterdam-1 --file test.zip
+</pre>
+
+- To use curl first create a <code>PAR</code> (preauthenticated request) for the bucket <code>scanning</code> using Cloud UI with <code>permit object writes</code> and then use curl command (example):
+
+<pre>
+curl -v -T test.zip https://objectstorage.eu-amsterdam-1.oraclecloud.com/p/0ZBlo1ess_LuVB1_04jYSG5EH2WBLMmPBaYfbyfO3MFvVHmPNUzcaMjhEfRsjcg5/n/frsxwtjslf35/b/scanning/o/
+</pre>
+
+
 ### Questions / Considerations
 
 - How to update the uvscan data file from Internet ? After update create VM image again ? Automate somehow ?

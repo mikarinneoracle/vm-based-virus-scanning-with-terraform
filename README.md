@@ -88,7 +88,7 @@ Allow dynamic-group scanning_agent to use instance-agent-command-execution-famil
 - In Cloud UI create Application <code>scanning</code>
 - Enable logging
 
-<b>In Cloud Shell</b>:
+<b>In Cloud Shell / Cloud Code Editor</b>:
     
 - Clone repo to localhost or Cloud Shell and cd to <code><a href="scanning">/scanning</a></code>
 - Follow the instructions in the Application "Getting Started" to Function <code>scanning</code>
@@ -147,10 +147,10 @@ sudo -u opc /home/opc/scan.sh
 oci os object put --bucket-name scanning --region eu-amsterdam-1 --file test.zip
 </pre>
 
-- To use curl first create a <code>PAR</code> (preauthenticated request) for the bucket <code>scanning</code> using Cloud UI with <code>permit object writes</code> and then use curl command (example):
+- To use curl first create a <code>PAR</code> (preauthenticated request) for the bucket <code>scanning</code> with <code>permit object writes</code> using Cloud UI and then use curl command (example):
 
 <pre>
-curl -v -T test.zip https://objectstorage.eu-amsterdam-1.oraclecloud.com/p/0ZBlo1ess_LuVB1_04jYSG5EH2WBLMmPBaYfbyfO3MFvVHmPNUzcaMjhEfRsjcg5/n/frsxwtjslf35/b/scanning/o/
+curl -T test.zip https://objectstorage.eu-amsterdam-1.oraclecloud.com/p/0ZBlo1ess_LuVB1_04jYSG5EH2WBLMmPBaYfbyfO3MFvVHmPNUzcaMjhEfRsjcg5/n/frsxwtjslf35/b/scanning/o/
 </pre>
 
 

@@ -25,5 +25,5 @@ resource "oci_objectstorage_preauthrequest" "scanning_preauth" {
   bucket       = oci_objectstorage_bucket.scanning.name
   name         = "scanning_preauth"
   namespace    = data.oci_objectstorage_namespace.user_namespace.namespace
-  time_expires = timeadd(timestamp(), "30d")
+  time_expires = timeadd(timestamp(), "8765h")
 }

@@ -47,13 +47,13 @@ wget https://update.nai.com/products/commonupdater/current/vscandat1000/dat/0000
 - scanning_fn
 
 <pre>
-ALL {resource.type = 'fnfunc', resource.compartment.id = 'ocid1.compartment.oc1..aaaaaaaawccfklp2wj4c5ymigrkjfdhcbcm3u5ripl2whnznhmvgiqdatqgq'}
+ALL {resource.type = 'fnfunc', resource.compartment.id = 'ocid1.compartment.oc1..u5ripl2whnznhmvgiqdatqgq'}
 </pre>
 
 - scanning_agent
 
 <pre>
-ANY {instance.compartment.id = 'ocid1.compartment.oc1..aaaaaaaawccfklp2wj4c5ymigrkjfdhcbcm3u5ripl2whnznhmvgiqdatqgq'}
+ANY {instance.compartment.id = 'ocid1.compartment.oc1..u5ripl2whnznhmvgiqdatqgq'}
 </pre>
 
 
@@ -150,10 +150,5 @@ oci os object put --bucket-name scanning --region eu-amsterdam-1 --file test.zip
 - To use curl first create a <code>PAR</code> (preauthenticated request) for the bucket <code>scanning</code> with <code>permit object writes</code> using Cloud UI and then use curl command (example):
 
 <pre>
-curl -T test.zip https://objectstorage.eu-amsterdam-1.oraclecloud.com/p/0ZBlo1ess_LuVB1_04jYSG5EH2WBLMmPBaYfbyfO3MFvVHmPNUzcaMjhEfRsjcg5/n/frsxwtjslf35/b/scanning/o/
+curl -T test.zip https://objectstorage.eu-amsterdam-1.oraclecloud.com/p/0ZBlo1e.....caMjhEfRsjcg5/n/frsxwtjslf35/b/scanning/o/
 </pre>
-
-
-### Questions / Considerations
-
-- How to update the uvscan data file from Internet ? After update create VM image again ? Automate somehow ?

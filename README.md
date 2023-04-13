@@ -134,7 +134,7 @@ When Function is run using Resource Manager stack it creates (and then destroys 
 
 - Configure <code>STACK_OCID</code>, <code>COMPARTMENT_OCID</code>, <code>COMMAND</code> parameters for the Function tu run
 
-VM Instance-Agent Run <code>COMMAND</code> (Can be <b>fixed</b> in the shell script instead for safety):
+VM Instance-Agent Run <code>COMMAND</code>:
 <pre>
 sudo -u opc /home/opc/scan.sh
 </pre>

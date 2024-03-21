@@ -162,7 +162,7 @@ curl -T test.zip https://objectstorage.eu-amsterdam-1.oraclecloud.com/p/0ZBlo1e.
 Scanning report for a random zip file. Report is saved to the target bucket:
 
 <p>
-<code>
+<pre>
 Command Line Scanner for Linux64 Version: 7.0.4.835
 Copyright (C) 2024 Musarubra US LLC.
 EVALUATION COPY - March 21 2024
@@ -269,4 +269,4 @@ https://www.trellix.com/en-us/contact-us/demo-request-form.html
 If you  choose not to license the software, you  need to remove it from
 your system.  All  use  of  this software is conditioned upon compliance
 with the license terms set forth in the README.TXT file.
-</code>
+</pre>

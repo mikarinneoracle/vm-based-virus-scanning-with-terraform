@@ -106,7 +106,9 @@ This will create and push the OCIR image and deploy the Function <code>scanning<
 <b>In could shell or localhost</b>:
 
 - Clone repo and cd to <code><a href="terraform">/terraform</a></code>
-- Update <code><a href="terraform/vars.tf">vars.tf</a></code> <code>compartment</code> and <code>region</code> used 
+- Update <code><a href="terraform/vars.tf">vars.tf</a></code> <code>compartment</code> and <code>region</code> used
+- Update <code><a href="terraform/vars.tf">vars.tf</a></code> <code>function_id</code> with scanning Function OCID created in the previous step
+- Update <code><a href="terraform/vars.tf">vars.tf</a></code> <code>compartment</code> in <code>event_condition</code>, <code>clean_event_condition</code> and <code>infected_event_condition</code>
 - Run <code>terraform init</code> and <code>terraform apply</code> 
 
 Running apply will create:

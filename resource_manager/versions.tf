@@ -1,4 +1,4 @@
 provider "oci" {
-   auth = "InstancePrincipal"
+   auth = "ResourcePrincipal"
    region = "eu-amsterdam-1"
 }

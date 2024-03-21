@@ -148,13 +148,13 @@ sudo -u opc /home/opc/scan.sh
 - Use oci cli
 
 <pre>
-oci os object put --bucket-name scanning --region eu-amsterdam-1 --file test.zip
+oci os object put --bucket-name scanning --region eu-amsterdam-1 --file GCN-oke.zip
 </pre>
 
 - To use curl first create a <code>PAR</code> (preauthenticated request) for the bucket <code>scanning</code> with <code>permit object writes</code> using Cloud UI and then use curl command (example):
 
 <pre>
-curl -T test.zip https://objectstorage.eu-amsterdam-1.oraclecloud.com/p/0ZBlo1e.....caMjhEfRsjcg5/n/frsxwtjslf35/b/scanning/o/
+curl -T GCN-oke.zip https://objectstorage.eu-amsterdam-1.oraclecloud.com/p/0ZBlo1e.....caMjhEfRsjcg5/n/frsxwtjslf35/b/scanning/o/
 </pre>
 
 ### Scanning report example

@@ -159,7 +159,7 @@ curl -T GCN-oke.zip https://objectstorage.eu-amsterdam-1.oraclecloud.com/p/0ZBlo
 
 ### Scanning report example
 
-Scanning report for a random zip file. Report is saved to the target bucket:
+Scanning report for the GCN-oke.zip file in the examples above. Report is saved to the target bucket along with the scanned file:
 
 <p>
 <pre>

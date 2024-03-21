@@ -19,13 +19,13 @@ variable "services_network" {
 variable "compartment_id" {
   type    = string
   ### Replace with your Compartment OCID
-  default = "ocid1.compartment.oc1..aaaaaaaawccfklp2wj4c5ymigrkjfdhcbcm3u5ripl2whnznhmvgiqdatqgq"
+  default = "ocid1.compartment.oc1..aaaaaaaa...."
 }
 
 variable "scanning_image_source_ocid" {
   type    = string
   ### Replace with your Scanning VM Image OCID
-  default = "ocid1.image.oc1.eu-amsterdam-1.aaaaaaaaxski5mtcps44ilaajkvezlfmkzyepcrkc7m7oc3xg6xilrd76cfa"
+  default = "ocid1.image.oc1.eu-amsterdam-1.aaaaaaaa...."
 }
 
 variable "scanning_shape" {

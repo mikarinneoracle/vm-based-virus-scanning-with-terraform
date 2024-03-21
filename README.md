@@ -156,3 +156,117 @@ oci os object put --bucket-name scanning --region eu-amsterdam-1 --file test.zip
 <pre>
 curl -T test.zip https://objectstorage.eu-amsterdam-1.oraclecloud.com/p/0ZBlo1e.....caMjhEfRsjcg5/n/frsxwtjslf35/b/scanning/o/
 </pre>
+
+### Scanning report example
+
+Scanning report for a random zip file. Report is saved to the target bucket:
+
+<p>
+<code>
+Command Line Scanner for Linux64 Version: 7.0.4.835
+Copyright (C) 2024 Musarubra US LLC.
+EVALUATION COPY - March 21 2024
+
+AV Engine version: 6700.10107 for Linux64.
+
+
+Dat set version: 11019  created Mar 20 2024
+Scanning for 596817 viruses, trojans and variants.
+
+
+2024-Mar-21 13:28:00
+
+
+Options:
+-v --unzip --analyze --summary --afc 512 --program --mime --recursive --threads=4 --report=/home/opc/report.txt --rptall --rptcor --rpterr --rptobjects /home/opc/scandir 
+
+/home/opc/scandir/GCN-oke.zip/micronaut-cli.yml ... is OK.
+/home/opc/scandir/GCN-oke.zip/.gitkeep ... is OK.
+/home/opc/scandir/GCN-oke.zip/.gitkeep ... is OK.
+/home/opc/scandir/GCN-oke.zip/Application.java ... is OK.
+/home/opc/scandir/GCN-oke.zip/OciTest.java ... is OK.
+/home/opc/scandir/GCN-oke.zip/LICENSE ... is OK.
+/home/opc/scandir/GCN-oke.zip/NOTICE ... is OK.
+/home/opc/scandir/GCN-oke.zip/logback.xml ... is OK.
+/home/opc/scandir/GCN-oke.zip/application-oraclecloud.properties ... is OK.
+/home/opc/scandir/GCN-oke.zip/bootstrap-oraclecloud.properties ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/MANIFEST.MF ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/DEPENDENCIES ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/LICENSE ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/NOTICE ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/BootstrapMainStarter.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/DefaultDownloader$1.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/DefaultDownloader$SystemPropertiesProxyAuthenticator.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/DefaultDownloader.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/Downloader.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/Installer$1.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/Installer.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/Logger.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/MavenWrapperMain.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/PathAssembler$LocalDistribution.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/PathAssembler.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/SystemPropertiesHandler.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/WrapperConfiguration.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/WrapperExecutor.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/AbstractCommandLineConverter.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/AbstractPropertiesCommandLineConverter.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/CommandLineArgumentException.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/CommandLineConverter.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/CommandLineOption.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/CommandLineParser$1.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/CommandLineParser$AfterFirstSubCommand.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/CommandLineParser$AfterOptions.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/CommandLineParser$BeforeFirstSubCommand.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/CommandLineParser$CaseInsensitiveStringComparator.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/CommandLineParser$KnownOptionParserState.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/CommandLineParser$MissingOptionArgState.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/CommandLineParser$OptionAwareParserState.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/CommandLineParser$OptionComparator.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/CommandLineParser$OptionParserState.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/CommandLineParser$OptionString.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/CommandLineParser$OptionStringComparator.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/CommandLineParser$ParserState.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/CommandLineParser$UnknownOptionParserState.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/CommandLineParser.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/ParsedCommandLine.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/ParsedCommandLineOption.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/ProjectPropertiesCommandLineConverter.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/SystemPropertiesCommandLineConverter.class ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/pom.xml ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar/pom.properties ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.jar ... is OK.
+/home/opc/scandir/GCN-oke.zip/maven-wrapper.properties ... is OK.
+/home/opc/scandir/GCN-oke.zip/mvnw ... is OK.
+/home/opc/scandir/GCN-oke.zip/mvnw.bat ... is OK.
+/home/opc/scandir/GCN-oke.zip/pom.xml ... is OK.
+/home/opc/scandir/GCN-oke.zip/.gitignore ... is OK.
+/home/opc/scandir/GCN-oke.zip/pom.xml ... is OK.
+/home/opc/scandir/GCN-oke.zip/pom.xml ... is OK.
+/home/opc/scandir/GCN-oke.zip/README.md ... is OK.
+/home/opc/scandir/GCN-oke.zip ... is OK.
+
+
+Summary Report on /home/opc/scandir
+File(s)
+        Total files:...................     1
+        Total Objects:.................     64
+        Clean:.........................     1
+        Not Scanned:...................     0
+        Possibly Infected:.............     0
+        Objects Possibly Infected:.....     0
+
+
+Time: 00:00:01
+
+
+Thank you for choosing to evaluate Command Line Scanner from Trellix.
+This  version of the software is for Evaluation Purposes Only and may be
+used  for  up to 30 days to determine if it meets your requirements.  To
+license  the  software,  or to  obtain  assistance during the evaluation
+process,  please refer to 
+https://www.trellix.com/en-us/contact-us/demo-request-form.html
+(Choose Endpoint/Infrastructure Security).
+If you  choose not to license the software, you  need to remove it from
+your system.  All  use  of  this software is conditioned upon compliance
+with the license terms set forth in the README.TXT file.
+</code>

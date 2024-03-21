@@ -1,4 +1,4 @@
-OCI_CLI_AUTH=instance-principal
+OCI_CLI_AUTH=instance_principal
 rm -f /home/opc/report.txt
 rm -rf /home/opc/scandir
 mkdir /home/opc/scandir

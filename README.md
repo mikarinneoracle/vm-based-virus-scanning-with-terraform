@@ -14,7 +14,7 @@ VM instance using Internet connection over ssh, e.g.:
 - Access VM over ssh and add <code>/home/opc/<a href="scan.sh">scan.sh</a></code> (modify <code>region</code> if necessary):
 
 <pre>
-OCI_CLI_AUTH=instance_principal
+export OCI_CLI_AUTH=instance_principal
 rm -f /home/opc/report.txt
 rm -rf /home/opc/scandir
 mkdir /home/opc/scandir

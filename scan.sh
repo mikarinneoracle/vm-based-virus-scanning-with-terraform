@@ -16,10 +16,11 @@ else
    oci os object bulk-delete --bucket-name scanned --region eu-amsterdam-1 --force --namespace $namespace
    oci os object put --bucket-name scanned --region eu-amsterdam-1 --file /home/opc/report.txt --force --namespace $namespace
    #oci os object bulk-upload --bucket-name scanned --region eu-amsterdam-1 --src-dir /home/opc/scandir --namespace $namespace 
-   ls /home/opc/scandir > scanned.out
+   ls /home/opc/scandir > /home/opc/scanned.out
    while read file; do
     echo "uploading $file to scanned files"
     oci os object put --bucket-name scanned --region eu-amsterdam-1 --file /home/opc/scandir/$file --force --namespace $namespace
-   done <scanned.out
+   done </home/opc/scanned.out
+   rm -f /home/opc/scanned.out
 fi
 oci os object bulk-delete --bucket-name scanning --region eu-amsterdam-1 --force --namespace $namespace
